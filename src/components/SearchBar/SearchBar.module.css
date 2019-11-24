@@ -2,12 +2,13 @@
     color: #171718;
     font-size: 16px;
     min-height: 38px;
-    padding: 4px 8px;
+    padding: 2px 8px;
     border-radius: 4px;
     border: 2px solid rgb(179, 179, 179);
-    width: 100%;
+    width: 30%;
     outline: 0;
     transition: border-color 200ms ease-in-out;
+    margin-top: 15px;
   }
   
   .input:focus {

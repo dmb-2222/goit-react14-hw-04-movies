@@ -1,0 +1,10 @@
+.movieDetailsPage{
+    display: flex;
+    width: 80%;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(58, 46, 46, 0.24);
+}
+.reviews{
+    width: 80%;
+}

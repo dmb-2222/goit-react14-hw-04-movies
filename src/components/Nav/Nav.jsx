@@ -2,23 +2,21 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Nav.module.css";
 
-// const activeStyles = {
+// const activeStyle = {
 //   color: "green",
 //   width: "20%",
 //   fontWeight: "700"
 // };
-
-const Nav = () => {
-  return (
+// не могу понять, не работает activeStyle, как только не крутил, оставил лишний код т.к. буду его еще мучать
+const Nav = () => (
     <section className={styles.nav}>
       <ul>
         <li>
           <NavLink
             to="/"
             exact
+            // style={{ color: "green" }}
             activeStyle={{ color: "red" }}
-            style={{ color: "green" }}
-            
           >
             Home
           </NavLink>
@@ -26,6 +24,7 @@ const Nav = () => {
         <li>
           <NavLink
             to="/movies"
+            exact
             // activeClassName={styles.activeLink}
             // className={styles.test}
             style={{ color: "green" }}
@@ -37,6 +36,5 @@ const Nav = () => {
       </ul>
     </section>
   );
-};
 
 export default Nav;

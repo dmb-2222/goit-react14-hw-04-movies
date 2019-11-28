@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styles from "./Сredit.module.css";
 import { getCredits } from "../../services/ApiMovies";
+
 class Сredit extends Component {
   state = {
     credit: [],
@@ -11,6 +12,8 @@ class Сredit extends Component {
     );
   }
   render() {
+    const { location} = this.props;
+    console.log(location)
     const { credit } = this.state;
     return (
       <div>

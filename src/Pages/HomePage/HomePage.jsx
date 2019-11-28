@@ -13,10 +13,10 @@ import TrendMoviesList from '../../components/TrendMovies/MoviesList'
 
 class HomePages extends Component {
   state = {
-    dataTrend: []
+    dataTrend: [],
   };
   componentDidMount() {
-    trend().then(data => this.setState({ dataTrend: data }));
+    trend().then(data => this.setState({ dataTrend: data, locationFromHome:this.props.location }));
   }
   render() {
       const {dataTrend} =this.state

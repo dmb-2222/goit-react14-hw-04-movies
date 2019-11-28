@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import { getFilmById} from "../../services/ApiMovies";
+import { getFilmById } from "../../services/ApiMovies";
 import styles from "./MovieDetailsPage.module.css";
 import { Link } from "react-router-dom";
 import Credit from "../../components/Сredit/Сredit";
@@ -9,15 +9,17 @@ import Reviews from "../../components/Reviews/Reviews";
 class MovieDetailsPage extends Component {
   state = {
     movieDetals: []
+    // currentLocation: null
   };
   componentDidMount() {
     const id = this.props.match.params.id || this.props.location.state.id;
     getFilmById(id).then(data => this.setState({ movieDetals: data }));
   }
   handleGoBack = () => {
-    const { state } = this.props.location;
-    if (state) {
-      this.props.history.push(state.from);
+    const { location, history } = this.props;
+    // console.log(this.props.location.state);
+    if (location.state) {
+      history.push(location.state.from);
     }
   };
 
@@ -29,6 +31,7 @@ class MovieDetailsPage extends Component {
       genres
     } = this.state.movieDetals;
     const { id } = this.props.match.params;
+    const { state } = this.props.location;
     return (
       this.state.movieDetals.length !== 0 && (
         <>
@@ -56,8 +59,15 @@ class MovieDetailsPage extends Component {
             </div>
           </div>
           <h3>Editional information</h3>
-          <Link to={`/movies/${id}/cast`}>Cast</Link>
-          <Link to={`/movies/${id}/reviews`}>Reviews</Link>
+          <Link
+            to={{
+              pathname: `/movies/${id}/cast`,
+              state
+            }}
+          >
+            Cast
+          </Link>
+          <Link to={{ pathname: `/movies/${id}/reviews`, state }}>Reviews</Link>
           <Route path={`${this.props.match.path}/cast/`} component={Credit} />
           <Route
             path={`${this.props.match.path}/reviews/`}

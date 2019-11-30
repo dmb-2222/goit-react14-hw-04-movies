@@ -18,7 +18,7 @@ class MovieDetailsPage extends Component {
     const { location, history } = this.props;
     if (location.state) {
       history.push(location.state.from);
-    } else history.push("/movies");
+    } else history.push("/");
   };
 
   render() {

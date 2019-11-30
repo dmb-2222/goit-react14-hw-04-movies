@@ -31,6 +31,10 @@ class Movies extends Component {
         dataFilms: data
       })
     );
+    this.props.history.push({
+      ...this.props.location,
+      search: `query=${query}`
+    });
   };
 
   render() {

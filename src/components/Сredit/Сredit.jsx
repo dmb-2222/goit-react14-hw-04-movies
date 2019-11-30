@@ -12,8 +12,6 @@ class Сredit extends Component {
     );
   }
   render() {
-    const { location} = this.props;
-    console.log(location)
     const { credit } = this.state;
     return (
       <div>

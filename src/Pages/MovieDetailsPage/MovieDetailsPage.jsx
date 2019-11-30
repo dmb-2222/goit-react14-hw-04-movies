@@ -9,7 +9,6 @@ import Reviews from "../../components/Reviews/Reviews";
 class MovieDetailsPage extends Component {
   state = {
     movieDetals: []
-    // currentLocation: null
   };
   componentDidMount() {
     const id = this.props.match.params.id || this.props.location.state.id;
@@ -17,10 +16,9 @@ class MovieDetailsPage extends Component {
   }
   handleGoBack = () => {
     const { location, history } = this.props;
-    // console.log(this.props.location.state);
     if (location.state) {
       history.push(location.state.from);
-    }
+    } else history.push("/movies");
   };
 
   render() {

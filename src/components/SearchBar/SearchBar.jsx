@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import propTypes from "prop-types";
 
 const SearchBar = ({ handleInput, handleClick, value }) => (
-  <form>
+  <form onSubmit={handleClick}>
     <input type="text" className={styles.input} onChange={handleInput} />
     <Link to={`/movies?query=${value}`} onClick={handleClick}>
       Search
